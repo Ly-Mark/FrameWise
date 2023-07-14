@@ -1,5 +1,6 @@
 ---
-title: "Post: Standard"
+title: "League of Legends - Exploring the Relationship Between Kills and Win Rate"
+subtitle: "Part 1: Data Exploration"
 excerpt_separator: "<!--more-->"
 categories:
 - Blog
@@ -191,7 +192,7 @@ Using bar charts and matrix plots we can see the significance of the missing val
 msno.bar(df)
 ```
 
-![missingno bar chart for missing values](E:\ModelDiversity\assets\images\output_14_1.png)
+![missingno bar chart for missing values](/assets/images/output_14_1.png)
 
 The bar graph reiterates how significant the missing values are.
 
@@ -264,7 +265,7 @@ After filling in our missing values we can quickly check to see if they filled i
 ```python
 msno.bar(df)
 ```
-![missingno bar chart for missing values](E:\ModelDiversity\assets\images\output_23_1.png)
+![missingno bar chart for missing values](/assets/images/output_23_1.png)
 
 Based on the bar graph, we can observe that the only information we are still missing are the damage and damage per minute columns. The game client began reporting damage starting from 2016, which reduces the amount of missing data from 68.1% to approximately 50%.
 
@@ -286,7 +287,7 @@ df2 = df.drop(['damage','damage/min'],axis=1)
 df2.hist(figsize=(15,15))
 ```
     
-![histogram for all numerical variables](E:\ModelDiversity\assets\images\output_27_1.png)
+![histogram for all numerical variables](/assets/images/output_27_1.png)
 
 ## Histograms
 
@@ -554,7 +555,7 @@ fig.update_layout(
 
 fig.show()
 ```
-![boxplots for each player](E:\ModelDiversity\assets\images\output_30_2.png)
+![boxplots for each player](/assets/images/output_30_2.png)
 
 To address these outliers, several approaches can be considered:
 
@@ -572,7 +573,7 @@ A pairwise plot allows us to visualize the relationship between multiple variabl
 # creating a pairwise plot of all 16 numerical variables
 sns.pairplot(df2, height=3)
 ```
-![pairwise plot](E:\ModelDiversity\assets\images\output_35_2.png)
+![pairwise plot](/assets/images/output_35_2.png)
 
 Visually, some variables look highly correlated with each other such as creep_score and gold_share. To further investigate these relationships, we can utilize a correlation heatmap, which provides us with correlation coefficients. These coefficients help us understand how different variables might impact each other.
 
@@ -597,7 +598,7 @@ lol_cor = df2_num.corr()
 sns.heatmap(lol_cor, annot=True,annot_kws={'size': 8}, fmt=".1f",linewidth=.5)
 ```
 
-![correlation coefficient heatmap](E:\ModelDiversity\assets\images\output_38_1.png)
+![correlation coefficient heatmap](/assets/images/output_38_1.png)
 
 From the heatmap, we can see there aren't too many variables that have high correlation when it comes to examining win rate. Strong correlations associated with win rate are wins with a correlation of 0.8 and KDA with a correlation of 0.7. Moderate relationships include assist with 0.6, games played with 0.5, deaths with -0.5, kills with 0.4, loses with -0.4, and gold/min and gold both at 0.3.
 
