@@ -1,10 +1,11 @@
 ---
-title: "League of Legends - Exploring the Relationship Between Kills and Win Rate"
-subtitle: "Part 1: Data Exploration"
+title: "League of Legends: Exploring the Relationship Between Kills and Win Rate"
+tagline: "This is a custom tagline content which overrides the default page excerpt."
 excerpt_separator: "<!--more-->"
 categories:
-- Blog
-  tags:
+- EDA
+- Supervised Learning
+tags:
 - Post Formats
 - readability
 - standard
@@ -22,10 +23,10 @@ categories:
 - Outliers
 - Correlation analysis
 - Data preprocessing
+toc: true
+toc_sticky: true
 ---
 
-
-# League of Legends: Exploring the Relationship Between Kills and Win Rate, Part 1: Data Exploration
 
 ## Introduction to League of Legends
 
@@ -74,13 +75,7 @@ df = pd.read_csv("\data\players_stats.csv")
 # checking shape of
 df.shape
 ```
-
-
-
-
     (1283, 21)
-
-
 
 ## Variables Dictionary
 
@@ -182,7 +177,7 @@ However, the variables 'Damage' and 'Damage/Min' present a different situation. 
 
 > Just a quick note: This information isn't really important for what we're currently studying, but it will be useful later on when we start looking at other models like multi-linear regression.
 
-## missingno
+### missingno
 
 Another way to visualize the missing values is from the package `missingno`.
 Using bar charts and matrix plots we can see the significance of the missing values in our dataset.
@@ -192,23 +187,27 @@ Using bar charts and matrix plots we can see the significance of the missing val
 msno.bar(df)
 ```
 
-![missingno bar chart for missing values](/assets/images/output_14_1.png)
-
-The bar graph reiterates how significant the missing values are.
+<figure>
+  <img src="/assets/images/output_14_1.png" alt="bargraph of number and percentage of missing data">
+  <figcaption>The bar graph reiterates how significant the missing values are.</figcaption>
+</figure>
 
 ```python
 # Positional information on where the missing values are
 msno.matrix(df)
 ```
-![missingno bar chart for missing values from where in the dataset](E:\ModelDiversity\assets\images\output_16_1.png)
+<figure>
+  <img src="/assets/images/output_16_1.png" alt="bargraph of where the missing data is located in the dataset by row">
+  <figcaption>This bargraph shows where our missing values are in the data</figcaption>
+</figure>
 
 We can use the matrix in the `missingno` package to visualize the missing values in our dataset. Looking at the matrix, we can see that the variables `kill_participation`, `kill_share`, and `gold_share` are missing data for the initial 3 years of the Worlds tournaments. Similarly, the variables `damage` and `damage/min` have missing values until the most recent editions of the Worlds tournaments. This aligns with our prior understanding of the dataset and confirms the presence of missing data in these specific variables.
 
-## Missing values
+### Missing values
 
 Now that we have identified our missing values, we can start tackle them to get a more complete dataset.
 
-### kill_participation, kill_share, gold_share
+#### kill_participation, kill_share, gold_share
 
 As mentioned above these variables can be derived with the information we currently have.
 
@@ -265,13 +264,17 @@ After filling in our missing values we can quickly check to see if they filled i
 ```python
 msno.bar(df)
 ```
-![missingno bar chart for missing values](/assets/images/output_23_1.png)
+<figure>
+  <img src="/assets/images/output_23_1.png" alt="missing values after dealing with missing values">
+  <figcaption>After filling in missing values</figcaption>
+</figure>
+
 
 Based on the bar graph, we can observe that the only information we are still missing are the damage and damage per minute columns. The game client began reporting damage starting from 2016, which reduces the amount of missing data from 68.1% to approximately 50%.
 
 For our current research question, we can exclude these columns as we only require the win percentage. In future projects, we may explore methods to predict or estimate the missing damage values such as imputation or prediction using regression.
 
-## Outliers
+### Outliers
 
 We can use two different methods to determine if there are any outliers within our dataset. First we will drop the two damage columns so that we have a complete dataset. Afterward, we examine each season using a histogram and a boxplot to see if there are any patterns and outliers in our dataset. Detecting outliers in our data is important for the integrity and reliability of our data since they might have a large influence in our analysis. We will need to decide how to deal with outliers (remove or stratify our analysis) so that our conclusions are representative of our data.
 
@@ -286,10 +289,12 @@ df2 = df.drop(['damage','damage/min'],axis=1)
 # generating histograms for each of the 16 remaining variables
 df2.hist(figsize=(15,15))
 ```
-    
-![histogram for all numerical variables](/assets/images/output_27_1.png)
+<figure>
+  <img src="/assets/images/output_27_1.png" alt="histograms to show the distribution of each variable">
+  <figcaption>Distribution of numerical variables</figcaption>
+</figure>    
 
-## Histograms
+#### Histograms
 
 From the histograms, we can see that some of the distributions are slightly skewed left and right.
 
@@ -325,11 +330,9 @@ From the histograms, we can see that some of the distributions are slightly skew
 
 * `gold share` - Gold share is right skewed with a mean of 19.9% gold share. The distribution for gold share is simliar to the distributions for gold/min, creep_score and cs/min. This can be furthered investigated with the use of a correlation heatmap. If we wanted to run a multi-linear regression we would have to test for collinearity and address that before making our model.
 
-## Summary statistics
+#### Summary statistics
 
 Summary statistics are essential numerical values that provide a concise overview of key characteristics within a dataset. They offer a quick snapshot of the data's central tendencies, dispersion, and distribution. These statistics, including measures like mean, median, standard deviation, and percentiles, play a vital role in data analysis. They allow us to grasp important insights promptly and make informed decisions. By examining summary statistics, we can identify outliers, assess data quality, compare different groups, and track changes over time. These concise yet informative statistics serve as a foundation for further analysis and assist in guiding decision-making. They empower researchers and analysts to draw meaningful conclusions and uncover valuable patterns in the data with clarity and precision.
-
-
 
 ```python
 # Describes our dataframe except for median
@@ -531,7 +534,7 @@ df2.describe()
 
 After applying the describe() function to the dataset, we observed that the majority of variables appeared within the anticipated ranges, with one exception: KDA. While 75% of players exhibited a KDA of 4.33, an intriguing finding emerged when considering the maximum KDA value of 25. This outlier demands our attention and prompts us to investigate further to ascertain its validity and potential impact on our analysis.
 
-## Boxplots
+#### Boxplots
 
 Using boxplots, we can detect potential outliers within the dataset, which could impact our model's performance. Outliers have been observed in various columns, including kill_share, kill_participation, gold, KDA, assists, deaths, kills, wins, and games played.
 
@@ -555,7 +558,10 @@ fig.update_layout(
 
 fig.show()
 ```
-![boxplots for each player](/assets/images/output_30_2.png)
+<figure>
+  <img src="/assets/images/output_30_2.png" alt="boxplots to identify potential outliers">
+  <figcaption>Boxplots for each numerical variable</figcaption>
+</figure>    
 
 To address these outliers, several approaches can be considered:
 
@@ -573,7 +579,11 @@ A pairwise plot allows us to visualize the relationship between multiple variabl
 # creating a pairwise plot of all 16 numerical variables
 sns.pairplot(df2, height=3)
 ```
-![pairwise plot](/assets/images/output_35_2.png)
+
+<figure>
+  <img src="/assets/images/output_35_2.png" alt="pairwise scatterplots for 16 variables">
+  <figcaption>Pairwise scatterplots for all 16 variables</figcaption>
+</figure>
 
 Visually, some variables look highly correlated with each other such as creep_score and gold_share. To further investigate these relationships, we can utilize a correlation heatmap, which provides us with correlation coefficients. These coefficients help us understand how different variables might impact each other.
 
@@ -597,8 +607,10 @@ lol_cor = df2_num.corr()
 # creates a heatmap with labeled correlation coefficient
 sns.heatmap(lol_cor, annot=True,annot_kws={'size': 8}, fmt=".1f",linewidth=.5)
 ```
-
-![correlation coefficient heatmap](/assets/images/output_38_1.png)
+<figure>
+  <img src="/assets/images/output_38_1.png" alt="correlation heatmap with seaborn">
+  <figcaption>Correlation coefficient heatmap with numerical values</figcaption>
+</figure>
 
 From the heatmap, we can see there aren't too many variables that have high correlation when it comes to examining win rate. Strong correlations associated with win rate are wins with a correlation of 0.8 and KDA with a correlation of 0.7. Moderate relationships include assist with 0.6, games played with 0.5, deaths with -0.5, kills with 0.4, loses with -0.4, and gold/min and gold both at 0.3.
 
@@ -610,9 +622,9 @@ To recap our exploration of the relationship between kills and win rate in Leagu
 
 *  **Missing Data and Outliers**: We encountered missing values in variables such as kill_participation, kill_share, gold_share, damage, and damage per minute. We derived missing variables except for damage-related columns due to significant data deficiency. Outliers were observed in various columns, and we discussed potential approaches for handling them.
 
-* **Correlation Analysis**: Through scatterplot matrices and correlation heatmaps, we explored the relationships between variables. Strong positive correlations with win rate were observed for variables like wins and KDA, while variables such as assists, games played, deaths, kills, loses, gold/min, and gold showed moderate correlations.
+*  **Correlation Analysis**: Through scatterplot matrices and correlation heatmaps, we explored the relationships between variables. Strong positive correlations with win rate were observed for variables like wins and KDA, while variables such as assists, games played, deaths, kills, loses, gold/min, and gold showed moderate correlations.
 
-* **Linear Relationship**: Although we did not find a strong linear relationship between kills and win rate in this initial exploration, we identified other variables that may play a more substantial role in predicting match outcomes.
+*  **Linear Relationship**: Although we did not find a strong linear relationship between kills and win rate in this initial exploration, we identified other variables that may play a more substantial role in predicting match outcomes.
 
 In the next part of our analysis, we will delve deeper into statistical modeling techniques, particularly linear regression, to build predictive models and uncover the key factors that contribute to success in League of Legends matches.
 
