@@ -1,52 +1,45 @@
 ---
-title: "League of Legends: Exploring the Relationship Between Kills and Win Rate"
-tagline: "This is a custom tagline content which overrides the default page excerpt."
-excerpt_separator: "<!--more-->"
-categories:
-- EDA
-- Supervised Learning
-tags:
-- Post Formats
-- readability
-- standard
-- League of Legends
-- Data analysis
-- Exploratory data analysis
-- Statistical analysis
-- Data visualization
-- Gaming
-- Esports
-- Win rate
-- Player performance
-- Data exploration
-- Summary statistics
-- Outliers
-- Correlation analysis
-- Data preprocessing
-toc: true
-toc_sticky: true
+layout : post
+title: League of Legends - Exploring the Relationship Between Kills and Win Rate
+description:  Part 1 - Data Wrangling and Exploratory Data Analysis
+author: mark
+image:  '/images/05.jpg'
+video_embed:
+tags:   [EDA, Data Exploration]
+tags_color: '#4c49cb'
+featured: true
 ---
 
 
 ## Introduction to League of Legends
 
-Since its release in 2009 by Riot Games, League of Legends has become a massively popular multiplayer online battle arena (MOBA) game. It features intense team-based gameplay where two teams of five players compete to destroy the opposing team's Nexus, the main structure. Each player takes control of a unique Champion, each with their own distinct abilities and playstyle, adding depth and strategic complexity to the game. But League of Legends is more than just a game—it has been a driving force behind the meteoric rise of competitive esports.
+Since its release in 2009 by Riot Games, League of Legends has become a massively popular multiplayer online battle arena 
+(**MOBA**) game. It features intense team-based gameplay where two teams of five players compete to destroy the opposing 
+team's Nexus, the main structure. Each player takes control of a unique Champion, each with their own distinct abilities 
+and playstyle, adding depth and strategic complexity to the game. But League of Legends is more than just a game—it has 
+been a driving force behind the meteoric rise of competitive esports.
 
-Esports has revolutionized the world of gaming, transforming it into a realm of professional competition with massive prize pools and devoted fan bases. League of Legends has been at the forefront of this esports revolution, attracting millions of viewers worldwide and offering astonishing prize pools for its tournaments. The League of Legends World Championship, for example, boasted a staggering prize pool of $2,225,000 USD in 2022, solidifying the game's position as a cornerstone of the esports industry.
+Esports has revolutionized the world of gaming, transforming it into a realm of professional competition with massive 
+prize pools and devoted fan bases. League of Legends has been at the forefront of this esports revolution, 
+attracting millions of viewers worldwide and offering astonishing prize pools for its tournaments. The League of Legends 
+World Championship, for example, boasted a staggering prize pool of **$2,225,000** USD in 2022, solidifying the game's position 
+as a cornerstone of the esports industry.
 
 ## Goal of the Project
 
-Our project's goal is to discover meaningful relationships that can help us predict match outcomes in League of Legends. Specifically, we aim to answer the question: "What is the connection between a player's average number of kills per game and their corresponding win rate?"
+Our project's goal is to discover meaningful relationships that can help us predict match outcomes in League of Legends. Specifically, we aim to answer the question: 
+
+> What is the connection between a player's average number of kills per game and their corresponding win rate?
 
 ## Packages
 
 This project will utilize the following packages for data analysis, visualization, and model creation:
 
-1. pandas - Data wrangling
-2. numpy - Filling in missing data
-3. missingno - visulization of missing values
-4. seaborn - data visualization
-5. plotly - data visualization
+1. **pandas** - Data wrangling
+2. **numpy** - Filling in missing data
+3. **missingno** - visulization of missing values
+4. **seaborn** - data visualization
+5. **plotly** - data visualization
 
 
 ```python
@@ -81,31 +74,31 @@ df.shape
 
 We have 21 different variables in this dataset which are defined below:
 
-* `season` - the championship season. 1 = 2011 which is the first Worlds
-* `event` - Main stage event or play-in
-* `team` - team name
-* `player` - player name
-* `games_played` - number of games played in the tournament season
-* `wins` - number of wins throughout the tournament season
-* `loses` - number of loses throughout the tournament season
-* `win_rate` - how many successful wins throughout all the matches played throughout the tournament
-* `kills` - average number of kills per game throughout the tournament
-* `deaths` - average number of deaths per game throughout the tournament
-* `assists` - average number of assists per game throughout the tournament
-* `kill_death_assist_ratio` - KDA kills + assists divided by deaths
-* `creep_score` - average number of "minion's" that were killed per game throughout the tournament
-* `cs/min` - average creep score per minute per game throughout the tournament
-* `gold` - average gold earned per game throughout the tournament
-* `gold/min` - average gold earned per minute per game throughout the tournament
-* `damage` - average damage done per game throughout the tournament
-* `damage/min` - average damage done per minute per game throughout the tournament
-* `kill_participation` - average kills + assists / total team kills pre game throughout the tournament
-* `kill_share` - average kills / total team kills per game throughout the tournament
-* `gold_share` - average gold / total team gold per game throughout the tournament
+* **`season`** - the championship season. 1 = 2011 which is the first Worlds
+* **`event`** - Main stage event or play-in
+* **`team`** - team name
+* **`player`** - player name
+* **`games_played`** - number of games played in the tournament season
+* **`wins`** - number of wins throughout the tournament season
+* **`loses`** - number of loses throughout the tournament season
+* **`win_rate`** - how many successful wins throughout all the matches played throughout the tournament
+* **`kills`** - average number of kills per game throughout the tournament
+* **`deaths`** - average number of deaths per game throughout the tournament
+* **`assists`** - average number of assists per game throughout the tournament
+* **`kill_death_assist_ratio`** - KDA kills + assists divided by deaths
+* **`creep_score`** - average number of "minion's" that were killed per game throughout the tournament
+* **`cs/min`** - average creep score per minute per game throughout the tournament
+* **`gold`** - average gold earned per game throughout the tournament
+* **`gold/min`** - average gold earned per minute per game throughout the tournament
+* **`damage`** - average damage done per game throughout the tournament
+* **`damage/min`** - average damage done per minute per game throughout the tournament
+* **`kill_participation`** - average kills + assists / total team kills pre game throughout the tournament
+* **`kill_share`** - average kills / total team kills per game throughout the tournament
+* **`gold_share`** - average gold / total team gold per game throughout the tournament
 
 ## Missing Data and Outliers
 
-We can use pandas to get a summary of the missing values using the `.info()`
+We can use **pandas** to get a summary of the missing values using the <i>`.info()`</i>
 
 
 ```python
@@ -141,7 +134,7 @@ df.info()
     memory usage: 210.6+ KB
     
 
-We can get the percentage of missing values using `isnull()` and `sum()`
+We can get the percentage of missing values using <i>`isnull()`</i> and <i>`sum()`</i>
 
 
 ```python
@@ -171,37 +164,43 @@ We can get the percentage of missing values using `isnull()` and `sum()`
     assists                     0.00000
     Name: Percentage of missing values, dtype: float64
 
-In this dataset, the variables `kill_participation`, `kill_share`, and `gold_share` were not calculated until the 2014 4th Worlds tournament. This accounts for a 13.4% data gap in these categories. Fortunately, we can easily compute these parameters using numpy.
+In this dataset, the variables **`kill_participation`**, **`kill_share`**, and **`gold_share`** were not calculated 
+until the 2014 4th Worlds tournament. This accounts for a **13.4%** data gap in these categories. Fortunately, 
+we can easily compute these parameters using **numpy**.
 
-However, the variables 'Damage' and 'Damage/Min' present a different situation. These metrics were only tracked starting from the 2020 10th Worlds tournament, resulting in a significant 68.1% data deficiency in our current dataset. We will explore alternative data sources to fill in this missing statistic.
+However, the variables **'Damage'** and **'Damage/Min'** present a different situation. 
+These metrics were only tracked starting from the **2020** Worlds tournament, resulting in a significant
+**68.1%** data deficiency in our current dataset. 
+We will explore alternative data sources to fill in this missing statistic.
 
-> Just a quick note: This information isn't really important for what we're currently studying, but it will be useful later on when we start looking at other models like multi-linear regression.
+<i>**Just a quick note:** This information isn't really important for what we're currently studying, but it will be useful later on when we start looking at other models like multi-linear regression.</i>
 
 ### missingno
 
-Another way to visualize the missing values is from the package `missingno`.
+Another way to visualize the missing values is from the package **missingno**.
 Using bar charts and matrix plots we can see the significance of the missing values in our dataset.
 
 ```python
 # Provides a bar chart of missing values
 msno.bar(df)
 ```
+![missingnobar1]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-missingno-bar1.png)
+*The bar graph reiterates how significant the missing values are.*
 
-<figure>
-  <img src="/assets/images/output_14_1.png" alt="bargraph of number and percentage of missing data">
-  <figcaption>The bar graph reiterates how significant the missing values are.</figcaption>
-</figure>
 
 ```python
 # Positional information on where the missing values are
 msno.matrix(df)
 ```
-<figure>
-  <img src="/assets/images/output_16_1.png" alt="bargraph of where the missing data is located in the dataset by row">
-  <figcaption>This bargraph shows where our missing values are in the data</figcaption>
-</figure>
+![missingnomatrix1]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-missingno-matrix1.png)
+*The bar graph shows where in the data the missing values are.*
 
-We can use the matrix in the `missingno` package to visualize the missing values in our dataset. Looking at the matrix, we can see that the variables `kill_participation`, `kill_share`, and `gold_share` are missing data for the initial 3 years of the Worlds tournaments. Similarly, the variables `damage` and `damage/min` have missing values until the most recent editions of the Worlds tournaments. This aligns with our prior understanding of the dataset and confirms the presence of missing data in these specific variables.
+
+We can use the matrix in the **missingno** package to visualize the missing values in our dataset. Looking at the matrix,
+we can see that the variables **`kill_participation`**, **`kill_share`**, and **`gold_share`** are missing data for 
+the initial 3 years of the Worlds tournaments. Similarly, the variables **`damage`** and **`damage/min`** have missing 
+values until the most recent editions of the Worlds tournaments. This aligns with our prior understanding of the dataset 
+and confirms the presence of missing data in these specific variables.
 
 ### Missing values
 
@@ -214,16 +213,13 @@ As mentioned above these variables can be derived with the information we curren
 **kill_percentage**:
 -  This is calculated by taking the average kills and assists for a player and dividing that by the number of total team kills during the tournament.
 
-$$
-    \text{kill percentage} = \frac{\text{average kills} + \text{average assist}}{\text{total team kills}}
-$$
+![killpercentage]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-kill-percentage-formula.png){:style="display:block; margin-left:auto; margin-right:auto"}
+
 
 **kill_share**:
 -  This is calculated by taking the average kills for a player and dividing that by the number of total team kills during the tournament.
 
-$$
-    \text{kill share} = \frac{\text{average kills}} {\text{total team kills}}
-$$
+![killshare]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-kill-share-formula.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 **gold_share**:
 -  This is calculated by taking the average gold for a player and dividing that by the number of total team gold during the tournament.
@@ -264,15 +260,17 @@ After filling in our missing values we can quickly check to see if they filled i
 ```python
 msno.bar(df)
 ```
-<figure>
-  <img src="/assets/images/output_23_1.png" alt="missing values after dealing with missing values">
-  <figcaption>After filling in missing values</figcaption>
-</figure>
+
+![missingnobar2]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-missingno-bar2.png)
+*Missing bar graph after filling in derived values*
 
 
-Based on the bar graph, we can observe that the only information we are still missing are the damage and damage per minute columns. The game client began reporting damage starting from 2016, which reduces the amount of missing data from 68.1% to approximately 50%.
+Based on the bar graph, we can observe that the only information we are still missing are the **`damage`** and **`damage/min`**
+columns. The game client began reporting **`damage`** starting from **2016**, which reduces the amount of missing data 
+from **68.1%** to approximately **50%**.
 
-For our current research question, we can exclude these columns as we only require the win percentage. In future projects, we may explore methods to predict or estimate the missing damage values such as imputation or prediction using regression.
+For our current research question, we can exclude these columns as we only require the win percentage. 
+In future projects, we may explore methods to predict or estimate the missing damage values such as imputation or prediction using regression.
 
 ### Outliers
 
@@ -289,46 +287,44 @@ df2 = df.drop(['damage','damage/min'],axis=1)
 # generating histograms for each of the 16 remaining variables
 df2.hist(figsize=(15,15))
 ```
-<figure>
-  <img src="/assets/images/output_27_1.png" alt="histograms to show the distribution of each variable">
-  <figcaption>Distribution of numerical variables</figcaption>
-</figure>    
+![missingnobar2]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-histogram-matrix.png)
+*Histogram showing the distribution of all the numerical variables in the dataset*
 
 #### Histograms
 
 From the histograms, we can see that some of the distributions are slightly skewed left and right.
 
-* `season` - When we examine the number of players in each season, we notice that the graph is skewed towards the left side. This means that in earlier seasons, there were more players compared to recent seasons. However, it's important to note that starting from season 7, the tournament introduced a preliminary round called the **play-in** stage, where teams compete for a spot in the main event. This change impacted the number of players we see in the graph.
+* **`season`** - When we examine the number of players in each season, we notice that the graph is skewed towards the left side. This means that in earlier seasons, there were more players compared to recent seasons. However, it's important to note that starting from season 7, the tournament introduced a preliminary round called the **play-in** stage, where teams compete for a spot in the main event. This change impacted the number of players we see in the graph.
 
-* `games played` - The histogram for games played shows a slightly skewed distribution towards the right side. This means that most teams played a moderate number of games, with a peak between 6 and 7 games. As the tournament progresses, only one team emerges as the winner, which explains why the number of teams decreases as we move towards higher game counts.
+* **`games played`** - The histogram for games played shows a slightly skewed distribution towards the right side. This means that most teams played a moderate number of games, with a peak between 6 and 7 games. As the tournament progresses, only one team emerges as the winner, which explains why the number of teams decreases as we move towards higher game counts.
 
-* `wins` - Similar to the games played variable, we see a right skewed distribution of wins. This indicates that most teams have a relatively lower number of wins, and as we move towards higher win counts, the number of teams decreases. This is expected since there can only be one winner in the tournament.
+* **`wins`** - Similar to the games played variable, we see a right skewed distribution of wins. This indicates that most teams have a relatively lower number of wins, and as we move towards higher win counts, the number of teams decreases. This is expected since there can only be one winner in the tournament.
 
-* `loses` - In the losses histogram, you may notice an absence of 4 losses. This is because tournament games are played in a best-of-one (BO1) or best-of-five series (BO5). In a best-of-five series, the first team to win three games out of five is declared the winner. Therefore, there is no opportunity for a team to have exactly 4 losses.
+* **`loses`** - In the losses histogram, you may notice an absence of 4 losses. This is because tournament games are played in a best-of-one (BO1) or best-of-five series (BO5). In a best-of-five series, the first team to win three games out of five is declared the winner. Therefore, there is no opportunity for a team to have exactly 4 losses.
 
-* `win rate` - The histogram for win rate is almost normally distributed with teams having a slightly higher than 50% win rate.
+* **`win rate`** - The histogram for win rate is almost normally distributed with teams having a slightly higher than 50% win rate.
 
-* `kills` - Kills are heavily right skewed since it is rare for a single individual to consistently have a high number of kills in each game. The median number of kills is 2.25 but keep in mind this includes all roles. Players who play **support** roles will often get no kills during the game and have higher assists and deaths compare to the **ADC** or **Middle** roles.
+* **`kills`** - Kills are heavily right skewed since it is rare for a single individual to consistently have a high number of kills in each game. The median number of kills is 2.25 but keep in mind this includes all roles. Players who play **support** roles will often get no kills during the game and have higher assists and deaths compare to the **ADC** or **Middle** roles.
 
-* `deaths` - Deaths are also heavily right skewed were the median number of deaths is about 2 to 3. Compared to other MOBAs, League of Legends games are usually lower scoring in kills and deaths as the momentum swings are more drastic which is a reason why we see a lower number of deaths and kills.
+* **`deaths`** - Deaths are also heavily right skewed were the median number of deaths is about 2 to 3. Compared to other MOBAs, League of Legends games are usually lower scoring in kills and deaths as the momentum swings are more drastic which is a reason why we see a lower number of deaths and kills.
 
-* `assists` - Assists also follow the same right skewed distribution as previous kills and deaths. We the median number of deaths to be around 6.
+* **`assists`** - Assists also follow the same right skewed distribution as previous kills and deaths. We the median number of deaths to be around 6.
 
-* `kill death assist ratio` - Kill death assist (KDA) ratio is a metric that can be used to determine a players performance during the game. Since this is a ratio, A higher KDA means that you were able to get a lot of kills and assists while maintaining a lower number of deaths. A low KDA means the opposite, where you have a higher number of deaths and a lower number of kills and assists. Having a low or high KDA doesn't necessary mean that you are a good or bad player. The goal of the game is to take down the enemies main structure (Nexus) and it can take only 1 fight to do so. Also, depending on the role that you play, your KDA can be drastically different. ADC and Middle champions will generally have a higher KDA since their role involves attacking enemy players. Support and top lane tanks usually have a lower KDA since their role is to assist the team rather than get kills and are okay with having more deaths. In this histogram we see that we are heavily right skewed as these are professionals that play at the highest levels and do not make many mistakes since the stakes are high.
+* **`kill/death/assist ratio`** - Kill death assist (**KDA**) ratio is a metric that can be used to determine a players performance during the game. Since this is a ratio, A higher KDA means that you were able to get a lot of kills and assists while maintaining a lower number of deaths. A low KDA means the opposite, where you have a higher number of deaths and a lower number of kills and assists. Having a low or high KDA doesn't necessary mean that you are a good or bad player. The goal of the game is to take down the enemies main structure (Nexus) and it can take only 1 fight to do so. Also, depending on the role that you play, your KDA can be drastically different. ADC and Middle champions will generally have a higher KDA since their role involves attacking enemy players. Support and top lane tanks usually have a lower KDA since their role is to assist the team rather than get kills and are okay with having more deaths. In this histogram we see that we are heavily right skewed as these are professionals that play at the highest levels and do not make many mistakes since the stakes are high.
 
-* `creep score` - Creep score (CS) is slightly left skewed with a large number of players having <100 CS. Creep or minions are neutral enemies and are the main way of getting gold and experience to level up your champion. In terms of the game, 3 positions focus on killing creep which are Top Middle and, the ADC. The support and jungle champions are more focused on building advantages in lane and positioning around the map.
+* **`creep score`** - Creep score (**CS**) is slightly left skewed with a large number of players having <100 CS. Creep or minions are neutral enemies and are the main way of getting gold and experience to level up your champion. In terms of the game, 3 positions focus on killing creep which are Top Middle and, the ADC. The support and jungle champions are more focused on building advantages in lane and positioning around the map.
 
-* `cs/min` - Creep score per minute is has the same left skew distribution as creep score. The average cs/min is 6.0 with 50% of the players having a cs/min higher than the average at 7.1 cs/min
+* **`cs/min`** - Creep score per minute is has the same left skew distribution as creep score. The average cs/min is 6.0 with 50% of the players having a cs/min higher than the average at 7.1 cs/min
 
-* `gold` - Gold is slightly right skewed. Gold is measured in thousands where the average gold earned per player is 11.5k.
+* **`gold`** - Gold is slightly right skewed. Gold is measured in thousands where the average gold earned per player is 11.5k.
 
-* `gold/min` - Interestingly, gold/min is left skewed compared to gold. However, gold per minute is not measured in thousands like gold.
+* **`gold/min`** - Interestingly, gold/min is left skewed compared to gold. However, gold per minute is not measured in thousands like gold.
 
-* `kill participation` - Kill participation is one of the few variables that are normally distributed in this dataset. There are very few with 0% and 100% kill participation. The mean is 65.9% and half the players are also at 66.3%.
+* **`kill participation`** - Kill participation is one of the few variables that are normally distributed in this dataset. There are very few with 0% and 100% kill participation. The mean is 65.9% and half the players are also at 66.3%.
 
-* `kill share` - Kill share is heavily left skewed. the difference between kill share and kill participation is removing assists from the calculation. Again, roles such as support or top lane tanks would have very low kill share but could have high kill participation.
+* **`kill share`** - Kill share is heavily left skewed. the difference between kill share and kill participation is removing assists from the calculation. Again, roles such as support or top lane tanks would have very low kill share but could have high kill participation.
 
-* `gold share` - Gold share is right skewed with a mean of 19.9% gold share. The distribution for gold share is simliar to the distributions for gold/min, creep_score and cs/min. This can be furthered investigated with the use of a correlation heatmap. If we wanted to run a multi-linear regression we would have to test for collinearity and address that before making our model.
+* **`gold share`** - Gold share is right skewed with a mean of 19.9% gold share. The distribution for gold share is simliar to the distributions for gold/min, creep_score and cs/min. This can be furthered investigated with the use of a correlation heatmap. If we wanted to run a multi-linear regression we would have to test for collinearity and address that before making our model.
 
 #### Summary statistics
 
@@ -532,11 +528,17 @@ df2.describe()
 </table>
 </div>
 
-After applying the describe() function to the dataset, we observed that the majority of variables appeared within the anticipated ranges, with one exception: KDA. While 75% of players exhibited a KDA of 4.33, an intriguing finding emerged when considering the maximum KDA value of 25. This outlier demands our attention and prompts us to investigate further to ascertain its validity and potential impact on our analysis.
+After applying the <i>describe()</i> function to the dataset, we observed that the majority of variables appeared 
+within the anticipated ranges, with one exception: KDA. While **75% of players exhibited a KDA of 4.33**, 
+an intriguing finding emerged when considering the **maximum KDA value of 25**. This outlier demands our attention and 
+prompts us to investigate further to ascertain its validity and potential impact on our analysis.
 
 #### Boxplots
 
-Using boxplots, we can detect potential outliers within the dataset, which could impact our model's performance. Outliers have been observed in various columns, including kill_share, kill_participation, gold, KDA, assists, deaths, kills, wins, and games played.
+Using boxplots, we can detect potential outliers within the dataset, which could impact our model's performance. 
+Outliers have been observed in various columns, 
+including **`kill_share`**, **`kill_participation`**, **`gold`**, **`KDA`**, **`assists`**, **`deaths`**, **`kills`**,
+**`wins`**, and **`games played`**.
 
 ```python
 ## Boxplots for each variable
@@ -558,43 +560,50 @@ fig.update_layout(
 
 fig.show()
 ```
-<figure>
-  <img src="/assets/images/output_30_2.png" alt="boxplots to identify potential outliers">
-  <figcaption>Boxplots for each numerical variable</figcaption>
-</figure>    
+
+![boxplot]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-boxplot.png)
+*Boxplots to identify potential outliers for each numerical variable using plotly*
+
 
 To address these outliers, several approaches can be considered:
 
-1. Exclusion of data: Setting a specific threshold and replacing values above or below this limit. However, it's essential to exercise domain knowledge to determine whether these values hold any particular significance.
-2. Data transformation: Applying mathematical transformations such as logarithmic, square root, or power transformations to compress the value ranges.
-3. Separate handling: Utilizing other outlier detection techniques like z-scores or more advanced statistical methods.
+1. **Exclusion of data**: Setting a specific threshold and replacing values above or below this limit. However, it's essential to exercise domain knowledge to determine whether these values hold any particular significance.
+2. **Data transformation**: Applying mathematical transformations such as logarithmic, square root, or power transformations to compress the value ranges.
+3. **Separate handling**: Utilizing other outlier detection techniques like z-scores or more advanced statistical methods.
 
-Not all outliers necessarily indicate problematic data. It's crucial to assess the influence of these points on our model. Cook's Distance and other diagnostic measures can be employed to evaluate the potential impact of removing these outliers from our analysis.
+Not all outliers necessarily indicate problematic data. It's crucial to assess the influence of these points on our model.
+**Cook's Distance** and other diagnostic measures can be employed to evaluate the potential impact of removing these 
+outliers from our analysis.
 
 ## Scatterplot Matrix
 
-A pairwise plot allows us to visualize the relationship between multiple variables by creating scatterplots for each pair of variables.
+A **pairwise plot** allows us to visualize the relationship between multiple variables by creating scatterplots for each 
+pair of variables.
 
 ```python
 # creating a pairwise plot of all 16 numerical variables
 sns.pairplot(df2, height=3)
 ```
 
-<figure>
-  <img src="/assets/images/output_35_2.png" alt="pairwise scatterplots for 16 variables">
-  <figcaption>Pairwise scatterplots for all 16 variables</figcaption>
-</figure>
+![pairwiseplot]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-pairewise-plot.png)
+*Pairwise plot to identify correlated variables using seaborn*
 
-Visually, some variables look highly correlated with each other such as creep_score and gold_share. To further investigate these relationships, we can utilize a correlation heatmap, which provides us with correlation coefficients. These coefficients help us understand how different variables might impact each other.
+
+
+Visually, some variables look highly correlated with each other such as **`creep_score`** and **`gold_share`**. To further investigate 
+these relationships, we can utilize a correlation heatmap, which provides us with correlation coefficients. These 
+coefficients help us understand how different variables might impact each other.
 
 ## Correlation Heat Map
-Correlation coefficients range from -1 to 1, indicating the strength and direction of the relationship. Variables with values close to the limits of this range exhibit a pronounced positive or negative relationship.
+Correlation coefficients range from **-1 to 1**, indicating the strength and direction of the relationship. Variables with values close to the limits of this range exhibit a pronounced positive or negative relationship.
 
-In general, if the coefficient falls between 0 and 0.3, it suggests a weak or negligible relationship. A coefficient between 0.3 and 0.7 indicates a moderate relationship, while a value greater than 0.7 suggests a strong relationship between the variables. These coefficients enable us to gauge the level of association between different factors in the dataset, shedding light on the interconnectedness of various aspects of League of Legends gameplay.
+In general, if the coefficient falls between **0 and 0.3**, it suggests a **weak** or **negligible** relationship. 
+A coefficient between **0.3** and **0.7** indicates a **moderate** relationship, while a value **greater than 0.7** 
+suggests a **strong** relationship between the variables. These coefficients enable us to gauge the level of association between different factors in the dataset, shedding light on the interconnectedness of various aspects of League of Legends gameplay.
 
-> 0 - 0.3 - Weak or no Relationship
-> 0.3 - 0.7 - Moderate Relationship
-> 0.7 - Strong relationship
+* **0 - 0.3** - Weak or no Relationship
+* **0.3 - 0.7** - Moderate Relationship
+* **>0.7** - Strong relationship
 
 
 ```python
@@ -607,25 +616,28 @@ lol_cor = df2_num.corr()
 # creates a heatmap with labeled correlation coefficient
 sns.heatmap(lol_cor, annot=True,annot_kws={'size': 8}, fmt=".1f",linewidth=.5)
 ```
-<figure>
-  <img src="/assets/images/output_38_1.png" alt="correlation heatmap with seaborn">
-  <figcaption>Correlation coefficient heatmap with numerical values</figcaption>
-</figure>
+![boxplot]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-correlation-heatmap.png)
+*Correlation heatmap with numerical values to identify correlated variables using seaborn*
 
-From the heatmap, we can see there aren't too many variables that have high correlation when it comes to examining win rate. Strong correlations associated with win rate are wins with a correlation of 0.8 and KDA with a correlation of 0.7. Moderate relationships include assist with 0.6, games played with 0.5, deaths with -0.5, kills with 0.4, loses with -0.4, and gold/min and gold both at 0.3.
+
+From the heatmap, we can see there aren't too many variables that have high correlation when it comes to examining win rate.
+
+* **Strong correlations** associated with win rate are **wins** with a correlation of **0.8** and **KDA** with a correlation of **0.7**.
+* **Moderate relationships** include **assist** with **0.6**, **games played** with **0.5**, **deaths** with **-0.5**,
+**kills** with **0.4**, **loses** with **-0.4**, and **gold/min and gold** both at **0.3**.
 
 ## Conclusion
 
 To recap our exploration of the relationship between kills and win rate in League of Legends:
 
-*  **Dataset and Goal**: We analyzed a League of Legends dataset that covered historical player data from the 2011 to 2022 World Championships. Our goal was to investigate the connection between a player's average number of kills per game and their win rate.
+*  **Dataset and Goal**: We analyzed a League of Legends dataset that covered historical player data from the **2011 to 2022** World Championships. Our goal was to investigate the connection between a player's **average number of kills per game** and their **win rate**.
 
-*  **Missing Data and Outliers**: We encountered missing values in variables such as kill_participation, kill_share, gold_share, damage, and damage per minute. We derived missing variables except for damage-related columns due to significant data deficiency. Outliers were observed in various columns, and we discussed potential approaches for handling them.
+*  **Missing Data and Outliers**: We encountered missing values in variables such as `kill_participation`, `kill_share`,`gold_share`, `damage`, and `damage/min`. We derived missing variables except for damage-related columns due to significant data deficiency. Outliers were observed in various columns, and we discussed potential approaches for handling them.
 
-*  **Correlation Analysis**: Through scatterplot matrices and correlation heatmaps, we explored the relationships between variables. Strong positive correlations with win rate were observed for variables like wins and KDA, while variables such as assists, games played, deaths, kills, loses, gold/min, and gold showed moderate correlations.
+*  **Correlation Analysis**: Through scatterplot matrices and correlation heatmaps, we explored the relationships between variables. Strong positive correlations with **win rate** were observed for variables like wins and KDA, while variables such as assists, games played, deaths, kills, loses, gold/min, and gold showed moderate correlations.
 
 *  **Linear Relationship**: Although we did not find a strong linear relationship between kills and win rate in this initial exploration, we identified other variables that may play a more substantial role in predicting match outcomes.
 
-In the next part of our analysis, we will delve deeper into statistical modeling techniques, particularly linear regression, to build predictive models and uncover the key factors that contribute to success in League of Legends matches.
+In the next part of our analysis, we will delve deeper into statistical modeling techniques, particularly linear regression, 
+to build predictive models and uncover the key factors that contribute to success in League of Legends matches.
 
-Stay tuned for Part 2, where we will further investigate the predictive power of different variables and analyze their impact on win rates in more detail.
