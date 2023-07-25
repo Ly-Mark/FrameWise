@@ -5,40 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17ace234-c2f8-4109-81bd-43263be32aa0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ModelDiversity.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/navigation.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/404.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/about.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/category-archive.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/home.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/tag-archive.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/year-archive.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2010-01-07-post-modified.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2010-01-07-post-standard.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2010-01-08-post-chat.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2010-02-05-post-notice.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2010-02-05-post-quote.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2010-03-07-post-link.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2019-04-18-welcome-to-jekyll.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_posts/2023-07-14-League-of-legends-eda.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2023-07-14-League-of-legends-eda.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/88x88logoFW.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/bio-photo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/output_14_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/output_16_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/output_23_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/output_27_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/output_30_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/output_35_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/output_38_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/Supervised Algorithms/LeagueEDA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/Supervised Algorithms/LeagueEDA.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/Supervised Algorithms/LeagueLinearReg.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/Supervised Algorithms/LeagueLinearReg.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

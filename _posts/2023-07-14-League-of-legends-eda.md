@@ -130,8 +130,7 @@ df.info()
      18  kill_participation       1111 non-null   float64
      19  kill_share               1111 non-null   float64
      20  gold_share               1111 non-null   float64
-    dtypes: float64(13), int64(5), object(3)
-    memory usage: 210.6+ KB
+
     
 
 We can get the percentage of missing values using <i>`isnull()`</i> and <i>`sum()`</i>
@@ -620,10 +619,10 @@ sns.heatmap(lol_cor, annot=True,annot_kws={'size': 8}, fmt=".1f",linewidth=.5)
 *Correlation heatmap with numerical values to identify correlated variables using seaborn*
 
 
-From the heatmap, we can see there aren't too many variables that have high correlation when it comes to examining win rate.
+From the heatmap, we can see there aren't too many variables that have high correlation when it comes to examining **`win rate`**.
 
-* **Strong correlations** associated with win rate are **wins** with a correlation of **0.8** and **KDA** with a correlation of **0.7**.
-* **Moderate relationships** include **assist** with **0.6**, **games played** with **0.5**, **deaths** with **-0.5**,
+* **Strong correlations** associated with **win rate** are **wins** with a correlation of **0.8** and **KDA** with a correlation of **0.7**.
+* **Moderate correlations** include **assist** with **0.6**, **games played** with **0.5**, **deaths** with **-0.5**,
 **kills** with **0.4**, **loses** with **-0.4**, and **gold/min and gold** both at **0.3**.
 
 ## Conclusion
@@ -632,7 +631,7 @@ To recap our exploration of the relationship between kills and win rate in Leagu
 
 *  **Dataset and Goal**: We analyzed a League of Legends dataset that covered historical player data from the **2011 to 2022** World Championships. Our goal was to investigate the connection between a player's **average number of kills per game** and their **win rate**.
 
-*  **Missing Data and Outliers**: We encountered missing values in variables such as `kill_participation`, `kill_share`,`gold_share`, `damage`, and `damage/min`. We derived missing variables except for damage-related columns due to significant data deficiency. Outliers were observed in various columns, and we discussed potential approaches for handling them.
+*  **Missing Data and Outliers**: We encountered missing values in variables such as `kill_participation`, `kill_share`, `gold_share`, `damage`, and `damage/min`. We derived missing variables except for damage-related columns due to significant data deficiency. Outliers were observed in various columns, and we discussed potential approaches for handling them.
 
 *  **Correlation Analysis**: Through scatterplot matrices and correlation heatmaps, we explored the relationships between variables. Strong positive correlations with **win rate** were observed for variables like wins and KDA, while variables such as assists, games played, deaths, kills, loses, gold/min, and gold showed moderate correlations.
 
