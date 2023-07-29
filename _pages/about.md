@@ -5,11 +5,18 @@ permalink: /about/
 image: '/images/102.jpg'
 ---
 
-In operant conditioning, a reinforcement (by reward) or instead a punishment is given after a given behavior, changing the frequency and/or form of that behavior. Stimulus present when the behavior/consequence occurs come to control these behavior modifications.
+Working as a laboratory technician,
+the most exciting part of my job was improving
+and tinkering with different ways to present results that were clear and made sense.
+That sparked an interest in finding a career where I could do that all day,
+leading to my path of becoming a data scientist.
 
-> Sing like no one’s listening, love like you’ve never been hurt, dance like nobody’s watching, and live like it’s heaven on earth.
+> I am a passionate data scientist with statistics, programming, data analysis, and data visualization expertise.
 
-Observational learning is learning that occurs through observing the behavior of others. It is a form of social learning which takes various forms, based on various processes. In humans, this form of learning seems to not need reinforcement to occur, but instead, requires a social model such as a parent, sibling, friend, or teacher with surroundings.
+After graduating from the University of Calgary with a Master's in Data Science and Analytics,
+specializing in biostatistics and health data,
+I worked as a data scientist at the same university in the Center of Health Informatics (CHI),
+where I worked closely with Dr. Na Li.
 
 <div class="gallery-box">
   <div class="gallery">

@@ -55,7 +55,10 @@ import plotly.express as px
 
 ## Data Preparation
 
-The data we will be using for this project is complied by Pedro Cesar on Kaggle and is scrapped from https://lol.fandom.com/ to get historical match data, historical player data and, historical champion data from the 2011 worlds to 2022 worlds. For this project we will be using the historical player data.
+The data we will be using for this project is complied by Pedro Cesar on Kaggle
+and is scrapped from https://lol.fandom.com/ to get historical match data,
+historical player data and historical champion data from the 2011 to 2022 Worlds championship.
+For this project, we will be using the historical player data.
 
 
 ```python
@@ -221,7 +224,7 @@ As mentioned above these variables can be derived with the information we curren
 ![killshare]({{site.baseurl}}/images/2023-07-14-League-of-legends-eda-kill-share-formula.png){:style="display:block; margin-left:auto; margin-right:auto"}
 
 **gold_share**:
--  This is calculated by taking the average gold for a player and dividing that by the number of total team gold during the tournament.
+-  This is calculated by taking the average gold for a player and dividing that by the amount of total team gold during the tournament.
 
 ```python
 # Subset missing values
@@ -273,7 +276,14 @@ In future projects, we may explore methods to predict or estimate the missing da
 
 ### Outliers
 
-We can use two different methods to determine if there are any outliers within our dataset. First we will drop the two damage columns so that we have a complete dataset. Afterward, we examine each season using a histogram and a boxplot to see if there are any patterns and outliers in our dataset. Detecting outliers in our data is important for the integrity and reliability of our data since they might have a large influence in our analysis. We will need to decide how to deal with outliers (remove or stratify our analysis) so that our conclusions are representative of our data.
+We can use two different methods to determine if there are any outliers within our dataset.
+First, we will drop the two damage columns so that we have a complete dataset.
+Afterward,
+we examine each season using a histogram and a boxplot to see if there are any patterns and outliers in our dataset.
+Detecting outliers in our data is important for the integrity and reliability of our data
+since they might have a large influence in our analysis.
+We will need to decide how to deal with outliers (remove or stratify our analysis)
+so that our conclusions are representative of our data.
 
 
 ```python
@@ -305,15 +315,15 @@ From the histograms, we can see that some of the distributions are slightly skew
 
 * **`kills`** - Kills are heavily right skewed since it is rare for a single individual to consistently have a high number of kills in each game. The median number of kills is 2.25 but keep in mind this includes all roles. Players who play **support** roles will often get no kills during the game and have higher assists and deaths compare to the **ADC** or **Middle** roles.
 
-* **`deaths`** - Deaths are also heavily right skewed were the median number of deaths is about 2 to 3. Compared to other MOBAs, League of Legends games are usually lower scoring in kills and deaths as the momentum swings are more drastic which is a reason why we see a lower number of deaths and kills.
+* **`deaths`** - Deaths are also heavily right skewed were the median number of deaths is about 2 to 3. Compared to other MOBAs, League of Legends games are usually lower scoring in kills and deaths as the momentum swings are more drastic, which is a reason why we see a lower number of deaths and kills.
 
-* **`assists`** - Assists also follow the same right skewed distribution as previous kills and deaths. We the median number of deaths to be around 6.
+* **`assists`** - Assists also follow the same right skewed distribution as previous kills and deaths. The median number of deaths to be around 6.
 
 * **`kill/death/assist ratio`** - Kill death assist (**KDA**) ratio is a metric that can be used to determine a players performance during the game. Since this is a ratio, A higher KDA means that you were able to get a lot of kills and assists while maintaining a lower number of deaths. A low KDA means the opposite, where you have a higher number of deaths and a lower number of kills and assists. Having a low or high KDA doesn't necessary mean that you are a good or bad player. The goal of the game is to take down the enemies main structure (Nexus) and it can take only 1 fight to do so. Also, depending on the role that you play, your KDA can be drastically different. ADC and Middle champions will generally have a higher KDA since their role involves attacking enemy players. Support and top lane tanks usually have a lower KDA since their role is to assist the team rather than get kills and are okay with having more deaths. In this histogram we see that we are heavily right skewed as these are professionals that play at the highest levels and do not make many mistakes since the stakes are high.
 
 * **`creep score`** - Creep score (**CS**) is slightly left skewed with a large number of players having <100 CS. Creep or minions are neutral enemies and are the main way of getting gold and experience to level up your champion. In terms of the game, 3 positions focus on killing creep which are Top Middle and, the ADC. The support and jungle champions are more focused on building advantages in lane and positioning around the map.
 
-* **`cs/min`** - Creep score per minute is has the same left skew distribution as creep score. The average cs/min is 6.0 with 50% of the players having a cs/min higher than the average at 7.1 cs/min
+* **`cs/min`** - Creep score per minute is having the same left skew distribution as creep score. The average cs/min is 6.0 with 50% of the players having a cs/min higher than the average at 7.1 cs/min
 
 * **`gold`** - Gold is slightly right skewed. Gold is measured in thousands where the average gold earned per player is 11.5k.
 
@@ -321,9 +331,9 @@ From the histograms, we can see that some of the distributions are slightly skew
 
 * **`kill participation`** - Kill participation is one of the few variables that are normally distributed in this dataset. There are very few with 0% and 100% kill participation. The mean is 65.9% and half the players are also at 66.3%.
 
-* **`kill share`** - Kill share is heavily left skewed. the difference between kill share and kill participation is removing assists from the calculation. Again, roles such as support or top lane tanks would have very low kill share but could have high kill participation.
+* **`kill share`** - Kill share is heavily left skewed. the difference between kill share and kill participation is removing assists from the calculation. Again, roles such as support or top lane tanks would have very low kill share but could have high-kill participation.
 
-* **`gold share`** - Gold share is right skewed with a mean of 19.9% gold share. The distribution for gold share is simliar to the distributions for gold/min, creep_score and cs/min. This can be furthered investigated with the use of a correlation heatmap. If we wanted to run a multi-linear regression we would have to test for collinearity and address that before making our model.
+* **`gold share`** - Gold share is right skewed with a mean of 19.9% gold share. The distribution for gold share is similar to the distributions for gold/min, creep_score and cs/min. This can be furthered investigated with the use of a correlation heatmap. If we wanted to run a multilinear regression, we would have to test for collinearity and address that before making our model.
 
 #### Summary statistics
 
