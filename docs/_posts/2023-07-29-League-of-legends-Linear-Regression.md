@@ -6,7 +6,7 @@ author: mark
 image:  '/images/06.jpg'
 video_embed:
 tags:   [Supervised Learning, Statistical Analysis]
-tags_color: '#4c49cb'
+tags_color: '#cb4949'
 featured: true
 ---
 
