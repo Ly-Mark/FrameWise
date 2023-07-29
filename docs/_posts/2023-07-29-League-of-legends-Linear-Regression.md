@@ -337,7 +337,7 @@ plt.show()
 ```
 
 
-![linearregreesionscatterplot]({{site.baseurl}}/images/2023-07-29-League-of-legends-linear-regression-kills-winrate-scatterplot)
+![linearregreesionscatterplot]({{site.baseurl}}/images/2023-07-29-League-of-legends-linear-regression-kills-winrate-scatterplot.png){:style="display:block; margin-left:auto; margin-right:auto"}
 *Scatterplot of our results created with matplotlib*    
 
     
